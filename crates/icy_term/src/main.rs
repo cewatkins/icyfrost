@@ -49,7 +49,7 @@ pub mod ui;
 mod util;
 pub type Res<T> = std::result::Result<T, Box<dyn std::error::Error + Send + Sync>>;
 
-use clap::{CommandFactory, Parser};
+use clap::Parser;
 
 lazy_static! {
     static ref VERSION: Version = Version::parse(env!("CARGO_PKG_VERSION")).unwrap();
@@ -115,7 +115,10 @@ fn main() {
     clap_i18n_richformatter::init_clap_rich_formatter_localizer();
     use std::fs;
 
-    let args = Args::parse_i18n();
+    let args = Args::parse_i18n().unwrap_or_else(|e| {
+        eprintln!("{}", e);
+        std::process::exit(1);
+    });
 
     if let Ok(log_file) = get_log_file() {
         // delete log file when it is too big
