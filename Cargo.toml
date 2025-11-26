@@ -89,3 +89,6 @@ strip = true        # Strip symbols from binary*
 [patch.crates-io]
 iced.git = "https://github.com/iced-rs/iced.git"
 iced_aw.git = "https://github.com/iced-rs/iced_aw.git"
+
+[patch."https://github.com/mkrueger/icy_tools"]
+icy_engine = { path = "crates/icy_engine" }

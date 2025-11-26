@@ -46,6 +46,9 @@ pub use fonts::*;
 mod mouse_handling;
 pub use mouse_handling::*;
 
+mod buffer_parser;
+pub use buffer_parser::*;
+
 // Re-export parsers from icy_parser_core
 pub use icy_parser_core::{IgsParser, MusicOption, SkypixParser};
 
