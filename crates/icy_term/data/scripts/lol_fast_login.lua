@@ -165,9 +165,9 @@ local function do_turn()
         log("Action: turn right")
     end
     rand_delay()
-    -- Fire after turning
+    -- Fire once after turning
     send("s")
-    log("Fire after turn")
+    log("Fire once after turn")
     rand_delay()
     if math.random() < EXTRA_MOVE_CHANCE then
         local k = move_keys[math.random(1,#move_keys)]
